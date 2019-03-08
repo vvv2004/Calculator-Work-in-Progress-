@@ -1,0 +1,23 @@
+void setup(){
+  size(500, 700);
+}
+void draw(){
+  background(255);
+  fill(222, 217, 217);
+  rect(30, 70, 400, 70);
+  for(int y = 200; y <= height; y += 125 ){
+     for(int x = 22; x <= width; x += 125){
+       rect(x, y, 80, 80);
+     }
+  }
+  fill(0);
+  textSize(30);
+  text("AC", 40, 255);
+  text('7' , 53, 380);
+  text('4' , 53, 505);
+  text('1' , 53, 630);
+  text("DEL", 160, 255);
+  text('8', 178, 380);
+  text('5', 178, 505);
+  text('2', 178, 630);
+}
