@@ -1,0 +1,150 @@
+                                                                        //Променливи
+
+int num = 0;
+int a = 0;
+int b = 0;
+int c = 0;
+
+int action = 0;
+boolean delete = false;
+boolean equ = false;
+boolean aSave = true;
+boolean bSave= false;
+
+void setup(){
+  size(500, 700);
+}
+void draw(){
+  background(255);
+  fill(222, 217, 217);
+  rect(30, 20, 400, 70);
+  for(int y = 148; y <= 630; y += 110){
+    for(int x = 30; x <= 430; x += 110){
+      rect(x, y, 80, 80);    
+    }
+  }
+  
+  textSize(30);
+  fill(0);
+  text("AC", 50, 200);
+  text('7', 60, 310);
+  text('4', 60, 420);
+  text('1', 60, 530);
+  text("DEL", 155, 200);
+  text('8', 170, 310);
+  text('5', 170, 420);
+  text('2', 170, 530);
+  text('0', 170, 640);
+  text('%', 280, 200);
+  text('9', 280, 310);
+  text('6', 280, 420);
+  text('3', 280, 530);
+  text('.', 285, 635);
+  text('/', 390, 200);
+  text('X', 390, 310);
+  text('-', 392, 420);
+  text('+', 389, 528);
+  text('=', 390, 640);
+  
+  if(keyPressed && key == 'c' || keyPressed && key =='C' || mouseX >= 30 &  mouseX <= 110 & mouseY >= 148 & mouseY <= 228 && mousePressed ){
+    fill(0);
+    rect(30, 148, 80, 80);
+  }
+  if(keyPressed && key == '7' || mouseX >= 30 & mouseX <= 110 & mouseY >= 258 & mouseY <= 338 && mousePressed ){
+    rect(30, 258, 80, 80);
+    num = 7;
+  }
+  if(keyPressed && key == '4' || mouseX >= 30 & mouseX <= 110 & mouseY >= 368 & mouseY <= 448 && mousePressed ){
+    rect(30, 368, 80, 80);
+    num = 4;
+  }  
+  if(keyPressed && key == '1' || mouseX >= 30 & mouseX <= 110 & mouseY >= 478 & mouseY <= 558 && mousePressed ){
+    rect(30, 478, 80, 80);
+    num = 1;
+  }
+  if(keyPressed && key == 'd'  || mouseX >= 140 & mouseX <= 220 & mouseY >= 148 & mouseY <= 228 && mousePressed ){
+    rect(140, 148, 80, 80);
+  }
+  if(keyPressed && key == '8' || mouseX >= 140 & mouseX <= 220 & mouseY >= 258 & mouseY <= 338 && mousePressed ){
+    rect(140, 258, 80, 80);
+    num = 8;
+  }
+  if(keyPressed && key == '5' || mouseX >= 140 & mouseX <= 220 & mouseY >= 368 & mouseY <= 448 && mousePressed ){
+    rect(140, 368, 80, 80);
+    num = 5;
+  }
+  if(keyPressed && key == '2' || mouseX >= 140 & mouseX <= 220 & mouseY >= 478 & mouseY <= 558 && mousePressed){
+    rect(140, 478, 80, 80);
+    num = 2;
+  }
+  if(keyPressed && key == '0' || mouseX >= 140 & mouseX <= 220 & mouseY >= 588 & mouseY <= 668 && mousePressed){
+    rect(140, 588, 80, 80);
+    num = 0;
+  }
+  if(keyPressed && key == 'p' || mouseX >= 250 & mouseX <= 330 & mouseY >= 148 & mouseY <= 228 && mousePressed){
+    rect(250, 148, 80, 80);
+    action = 1;
+    aSave = false;
+    bSave = true;
+  }
+  if(keyPressed && key == '9' || mouseX >= 250 & mouseX <= 330 & mouseY >= 258 & mouseY <= 338 && mousePressed){
+    rect(250, 258, 80, 80);
+    num = 9;
+  }
+  if(keyPressed && key == '6' || mouseX >= 250 & mouseX <= 330 & mouseY >= 368 & mouseY <= 448 && mousePressed){
+    rect(250, 368, 80, 80);
+    num = 6;
+  }
+  if(keyPressed && key == '3' || mouseX >= 250 & mouseX <= 330 & mouseY >= 478 & mouseY <= 558 && mousePressed){
+    rect(250, 478, 80, 80);
+    num = 3;
+  }
+  if(keyPressed && key == '/' || mouseX >= 360 & mouseX <= 440 & mouseY >= 148 & mouseY <= 228 && mousePressed){
+    rect(360, 148, 80, 80);
+    action = 2;
+    aSave = false;
+    bSave = true;
+  }
+  if(keyPressed && key == '*' || mouseX >= 360 & mouseX <= 440 & mouseY >= 258 & mouseY <=338 && mousePressed){
+    rect(360, 258, 80, 80);
+    action = 3;
+    aSave = false;
+    bSave = true;
+  }
+  if(keyPressed && key == '-' || mouseX >= 360 & mouseX <= 440 & mouseY >= 368 & mouseY <= 448 && mousePressed){
+    rect(360, 368, 80, 80);
+    action = 4;
+    aSave = false;
+    bSave = true;
+  }
+  if(keyPressed && key == '+' || mouseX >= 360 & mouseX <= 440 & mouseY >= 478 & mouseY <= 558 && mousePressed){
+    rect(360, 478, 80, 80);
+    action = 5;
+    aSave = false;
+    bSave = true;
+  }
+  if(keyPressed && key == '=' || mouseX >= 360 & mouseX <= 440 & mouseY >= 588 & mouseY <= 668 && mousePressed){
+    rect(360, 588, 80, 80);
+    equ = true;
+    bSave = false;
+  }
+  switch(action){
+     case(1): c = a % b;break;
+     case(2): c = a / b;break;
+     case(3): c = a * b;break;
+     case(4): c = a - b ;break;
+     case(5): c = a + b;break;
+     
+  }
+  if(aSave){
+    a = num;
+    text(a, 40, 70);
+  }else if(bSave){
+    b = num;
+    text(b, 40, 70);
+  }
+  if(equ){
+    text(c ,40, 70 );
+  }
+  
+}
